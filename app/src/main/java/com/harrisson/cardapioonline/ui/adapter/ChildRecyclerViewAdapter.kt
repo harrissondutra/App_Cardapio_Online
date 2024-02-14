@@ -29,7 +29,7 @@ class ChildRecyclerViewAdapter(
         var buttonAdd = itemView.findViewById<ImageView>(R.id.btn_add_food)
         var btn_remove = itemView.findViewById<ImageView>(R.id.btn_rem_food)
         var editText = itemView.findViewById<TextView>(R.id.edt_qtd_food)
-        var clearButton = itemView.findViewById<ImageView>(R.id.btn_clear)
+        var clearButton = itemView.findViewById<ImageView>(R.id.btn_checkout)
 
         fun vincula(food : ChildItem) {
             val image = itemView.findViewById<ImageView>(R.id.img_food)

@@ -1,6 +1,6 @@
 package com.harrisson.cardapioonline.ui.activity
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
     var totalPrice : Double = 0.0
     var alertSnackBar : String = ""
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -62,13 +61,6 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
                 }
             }
 
-            // Notificar o adapter que os dados foram alterados
-            //itemcount recebe 0
-
-
-
-
-
             // Exibir Toast para notificar se nenhum item estiver selecionado
             // e após remover todos os itens exibit Toast com mensagem de sucesso
             if (selectedFoodList.isEmpty()) {
@@ -81,6 +73,18 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
 
         }
 
+        binding.btnCheckout.setOnClickListener {
+
+            if (selectedFoodList.size <= 0) {
+                Toast.makeText(this, "Selecione algum item", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, CheckoutActivity::class.java)
+                intent.putParcelableArrayListExtra("selectedFoodList", selectedFoodList)
+                intent.putExtra("totalPrice", totalPrice)
+                startActivity(intent)
+            }
+
+        }
     }
 
     private fun getItemFood() {

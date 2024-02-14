@@ -42,18 +42,14 @@ class ParentRecyclerViewAdapter(
     override fun onBindViewHolder(holder : ParentRecyclerViewHolder, position : Int) {
         val parentItem = parentItemList[position]
 
-
         holder.parentTitle.text = parentItem.title
         holder.parentImageView.setImageResource(parentItem.image)
-
         holder.txtUp.text = " "
-
 
         holder.childRecyclerView.setHasFixedSize(true)
         val recyclerViewMenu = holder.childRecyclerView
 
         //verificar e alterar caso não fique bom
-//        var linearLayoutManager = LinearLayoutManager(holder.childRecyclerView.context, LinearLayoutManager.VERTICAL, false)
         var linearLayoutManager = LinearLayoutManager(holder.childRecyclerView.context, LinearLayoutManager.VERTICAL, false)
 
 
