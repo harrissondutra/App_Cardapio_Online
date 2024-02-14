@@ -100,12 +100,13 @@
 
         <Button
             android:id="@+id/btn_clear"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/orange"
-            android:text="@string/btn_clear"
-            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:focusable="true"
+            android:text="@string/txt_checkout"
+            android:textColor="@color/orange"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_gravity="end" />
