@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Cardapio Virtual</string>
+    <string name="txt_name_food">Picanha 500g</string>
+    <string name="txt_price_item">R$ 0.0</string>
+    <string name="desc_menu_item">Picanha no kilo, acompanhada de arroz branco, farofa e vinagrete</string>
+    <string name="add_food">+</string>
+    <string name="txt_final_price">Valor Final</string>
+    <string name="checkout">Finalizar pedido</string>
+    <string name="txt_total_value">157,00</string>
+    <string name="validation_all_fields">Preencha todos os campos</string>
+    <string name="footer_text">R$ 0,00</string>
+    <string name="input_name">Digite o nome do Prato</string>
+    <string name="input_description">Insira uma descrição...</string>
+    <string name="input_price">Valor: 00.00</string>
+    <string name="input_food_button">Cadastrar</string>
+    <string name="toolbar_input_food">Cadastrar Produto</string>
+    <string name="btn_next">Avançar</string>
+    <string name="txt_edit_qtd">1</string>
+    <string name="txt_lunch">Comidas</string>
+    <string name="txt_drinks">Bebidas</string>
+
+</resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/img_container"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_food"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txt_name_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/txt_name_food"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toEndOf="@+id/img_container"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_menu_food_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/desc_menu_item"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintStart_toEndOf="@+id/img_container"
+        app:layout_constraintTop_toBottomOf="@id/txt_name_food"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_price_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/txt_price_item"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toEndOf="@+id/img_container"
+        app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/btn_rem_food"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="15dp"
+        android:background="#00FFFFFF"
+        android:layout_marginStart="65dp"
+        android:src="@drawable/remove_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edt_qtd_food"
+        app:layout_constraintStart_toEndOf="@id/txt_price_food"
+        app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description" />
+
+    <TextView
+        android:id="@+id/edt_qtd_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_food"
+        app:layout_constraintStart_toEndOf="@id/btn_rem_food"
+        app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description"
+        app:layout_constraintVertical_bias="0.36"
+        tools:text="@string/txt_edit_qtd" />
+
+    <ImageView
+        android:id="@+id/btn_add_food"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="#00FFFFFF"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/add_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/txt_menu_food_description"
+        app:layout_constraintStart_toEndOf="@id/edt_qtd_food"
+        app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description" />
+
+
+
+
+    <!--    <CheckBox
+            android:id="@+id/btn_add_food"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/orange"
+            android:checked="true"
+            android:clickable="true"
+            app:centerIfNoTextEnabled="false"
+            app:checkedState="unchecked"
+            android:padding="5dp"
+            android:text="@string/add_food"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description" />-->
+
+<!--
+    <View
+        android:id="@+id/view_divisor"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="20dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />-->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
