@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         getItemFood()
         adapter.notifyDataSetChanged()
 
-        binding.btnClear.setOnClickListener {
+        binding.clearButton.setOnClickListener {
             // Limpar carrinho de compras e alterar todas as quantidades para 0
             totalPrice = 0.0
             getRenewTotalValue(totalPrice)
