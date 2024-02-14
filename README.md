@@ -4,7 +4,7 @@
 
 App para Android desenvolvido em Kotlin.
 
-<img src="https://docs.google.com/uc?id=12CJ4u3M_np7z7T2RanQpbz9t3KbAGpLo" alt="Imagem Inicial">
+<img src="https://docs.google.com/uc?id=12CJ4u3M_np7z7T2RanQpbz9t3KbAGpLo" alt="Imagem Inicial" width="200">
 
 
 
