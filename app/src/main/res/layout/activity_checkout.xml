@@ -8,8 +8,8 @@
     tools:context=".ui.activity.CheckoutActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
         android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,62 +35,107 @@
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/txt_topo_checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Teste"
-        android:padding="5dp"
         android:layout_marginTop="1dp"
+        android:background="@color/red"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:background="@color/red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:text="Teste" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaCheckout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        tools:listitem="@layout/item_checkout"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_topo_checkout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/total_value_checkout">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/card_obs"
+        tools:listitem="@layout/item_checkout">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/total_value_checkout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_obs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Teste"
-        android:textSize="25sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_marginBottom="1dp"
-        android:textAlignment="center"
-        android:background="@color/red"
-        android:padding="5dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="8dp"
+        background="@color/white"
+        app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_checkout"/>
+        app:layout_constraintBottom_toTopOf="@id/total_value_checkout">
 
-    <Button
-        android:id="@+id/btn_checkout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:text="Realizar pedido"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/txt_obs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Observações"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <EditText
+                android:id="@+id/edt_obs"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:hint="Insira suas observações"
+                android:textSize="15sp"
+                android:inputType="textMultiLine"
+                app:layout_constraintTop_toBottomOf="@+id/txt_obs_title"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
+        <TextView
+            android:id="@+id/total_value_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@color/red"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/btn_checkout"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Teste" />
+
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:text="Realizar pedido"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

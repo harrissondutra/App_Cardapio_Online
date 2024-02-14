@@ -108,23 +108,23 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
                 "Bolinha de peixe",
                 R.drawable.bolinha_de_peixe,
                 20.00,
-                "Hamburguer de carne, frango, vegetariano, etc"
+                "Bolinha de Peixe com molho de pimenta"
             )
         )
         childList.add(
             ChildItem(
                 "Pastelzinho",
                 R.drawable.pastelzinho,
-                10.00,
-                "Pastel de carne, queijo, frango, pizza, etc"
+                12.50,
+                "12 pastéis de carne, queijo ou frango"
             )
         )
         childList.add(
             ChildItem(
                 "Macaxeira Frita",
                 R.drawable.macaxeira,
-                5.00,
-                "Coxinha de frango, carne, queijo, etc"
+                30.00,
+                "Macaxeira frita"
             )
         )
         parentList.add(ParentItem("Petiscos", R.drawable.nuggets, childList))
@@ -165,13 +165,13 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         parentList.add(ParentItem("Comidas", R.drawable.almoco, childList2))
 
         val childList3 = ArrayList<ChildItem>()
-        childList3.add(ChildItem("Coca-Cola 2l", R.drawable.coca_cola, 5.00, "Geladíssima"))
-        childList3.add(ChildItem("São Geraldo 2l", R.drawable.sao_geraldo, 5.00, "Geladíssima"))
+        childList3.add(ChildItem("Coca-Cola 2l", R.drawable.coca_cola, 12.00, "Geladíssima"))
+        childList3.add(ChildItem("São Geraldo 2l", R.drawable.sao_geraldo, 15.00, "Geladíssima"))
         childList3.add(
             ChildItem(
                 "Heineken 600ml",
                 R.drawable.cerv_heine,
-                5.00,
+                25.00,
                 "Estupidamente gelada"
             )
         )
@@ -179,28 +179,28 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
             ChildItem(
                 "Stella Artois 600ml",
                 R.drawable.cerv_stella,
-                3.00,
+                20.00,
                 "Estupidamente gelada"
             )
         )
         parentList.add(ParentItem("Bebidas", R.drawable.bebida, childList3))
 
         val childList4 = ArrayList<ChildItem>()
-        childList4.add(ChildItem("Sorvete", R.drawable.sorvete, 5.00, "Morango, chocolate, creme"))
+        childList4.add(ChildItem("Sorvete", R.drawable.sorvete, 10.00, "Morango, chocolate, creme"))
         childList4.add(
             ChildItem(
                 "Açaí",
                 R.drawable.acai,
-                5.00,
+                13.00,
                 "Com banana, granola, leite condensado"
             )
         )
-        childList4.add(ChildItem("Pudim", R.drawable.pudim, 5.00, "De leite, de pão, de chocolate"))
+        childList4.add(ChildItem("Pudim", R.drawable.pudim, 6.50, "De leite, de pão, de chocolate"))
         childList4.add(
             ChildItem(
                 "Bolo",
                 R.drawable.bolo,
-                3.00,
+                5.00,
                 "De cenoura, de chocolate, de laranja"
             )
         )
