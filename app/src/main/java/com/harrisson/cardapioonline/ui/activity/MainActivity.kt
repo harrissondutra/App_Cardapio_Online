@@ -73,6 +73,9 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
 
         }
 
+        var name = intent.getStringExtra("name")
+        var tableNumber = intent.getStringExtra("tableNumber")
+
         binding.btnCheckout.setOnClickListener {
 
             if (selectedFoodList.size <= 0) {
@@ -81,6 +84,8 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
                 val intent = Intent(this, CheckoutActivity::class.java)
                 intent.putParcelableArrayListExtra("selectedFoodList", selectedFoodList)
                 intent.putExtra("totalPrice", totalPrice)
+                intent.putExtra("name", name)
+                intent.putExtra("tableNumber", tableNumber)
                 startActivity(intent)
             }
 

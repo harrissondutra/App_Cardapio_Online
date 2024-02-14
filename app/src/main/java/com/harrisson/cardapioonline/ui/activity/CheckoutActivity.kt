@@ -35,14 +35,10 @@ class CheckoutActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = linearLayoutManager
 
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                this,
-                linearLayoutManager.orientation
-            )
-        )
+        var mesa = intent.getStringExtra("tableNumber")
+        var name = intent.getStringExtra("name")
 
-        binding.txtTopoCheckout.text = "Lista Detalhada"
+        binding.txtTopoCheckout.text = "Mesa: $mesa"
         binding.totalValueCheckout.text =
             "Total: R$ " + intent.getDoubleExtra("totalPrice", 0.0).toString()
 
@@ -56,8 +52,8 @@ class CheckoutActivity : AppCompatActivity() {
                     .setPositiveButton("Confirmar") { dialog, which ->
                         dialog.dismiss()
                         AlertDialog.Builder(this)
-                            .setTitle("Pedido Confirmado")
-                            .setMessage("Seu pedido foi confirmado com sucesso! \nO número do seu pedido é: $randomPedido")
+                            .setTitle("Tudo certo, $name!")
+                            .setMessage("Mesa: $mesa \nSeu pedido foi confirmado com sucesso! \nO número do seu pedido é: $randomPedido")
                             .setPositiveButton("Ok") { dialog, which ->
                                 dialog.dismiss()
                                 val intent = Intent(this, MainActivity::class.java)
