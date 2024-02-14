@@ -1,5 +1,6 @@
 package com.harrisson.cardapioonline.ui.activity
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -45,6 +46,33 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         getItemFood()
         adapter.notifyDataSetChanged()
+
+        binding.btnClear.setOnClickListener {
+            // Limpar carrinho de compras e alterar todas as quantidades para 0
+            totalPrice = 0.0
+            getRenewTotalValue(totalPrice)
+
+            // Percorrer a lista de itens e atualizar a quantidade
+            for (item in parentList) {
+                for (child in item.childItemList) {
+                    child.qtd = 0
+                }
+            }
+
+            // Notificar a RecyclerView sobre as mudanças
+            adapter.notifyDataSetChanged()
+
+            // Verificar se a lista de itens selecionados não está vazia
+          /*  selectedFoodList = parentList.filter { it.qtd > 0 } as ArrayList<ChildItem>
+            if (selectedFoodList.isNotEmpty()) {
+                val intent = Intent(this, CheckoutActivity::class.java)
+                intent.putParcelableArrayListExtra("selectedFoodList", selectedFoodList)
+                startActivity(intent)
+            } else {
+                createSnackBarError(binding.root, "Nenhum item selecionado!")
+            }*/
+        }
+
 
     }
 
@@ -96,6 +124,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         snackbar.setActionTextColor(Color.WHITE)
         snackbar.setTextColor(Color.WHITE)
         snackbar.show()
+
     }
 
     fun createSnackBarError(

@@ -14,7 +14,7 @@
     <string name="input_price">Valor: 00.00</string>
     <string name="input_food_button">Cadastrar</string>
     <string name="toolbar_input_food">Cadastrar Produto</string>
-    <string name="btn_next">Avançar</string>
+    <string name="btn_clear">Limpar Tudo</string>
     <string name="txt_edit_qtd">1</string>
     <string name="txt_lunch">Comidas</string>
     <string name="txt_drinks">Bebidas</string>
