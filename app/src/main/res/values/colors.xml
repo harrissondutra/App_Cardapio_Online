@@ -6,5 +6,6 @@
     <color name="orange_black">#D35F06</color>
     <color name="red">#B71C1C</color>
     <color name="transparentGrey">#BEBEBE</color>
+    <color name="Grey">#7C7C7C</color>
     <color name="colorPrimary">@color/orange</color>
 </resources>
