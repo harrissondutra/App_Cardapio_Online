@@ -20,9 +20,9 @@
     <string name="txt_drinks">Bebidas</string>
     <string name="txt_checkout">Finalizar pedido</string>
     <string name="txt_register_name_food">Nome do produto</string>
-    <string name="txt_register_desc_food">Descrição do produto</string>
-    <string name="txt_register_price_food">Preço do produto</string>
-    <string name="txt_register_img_food">Imagem do produto</string>
+    <string name="txt_register_desc_food">Descrição</string>
+    <string name="txt_register_price_food">Preço </string>
+    <string name="txt_register_img_food">Envio de Imagem</string>
     <string name="txt_hint_food_name">Digite o nome do produto</string>
     <string name="txt_hint_food_desc">Digite a Descrição do produto</string>
     <string name="txt_hint_food_price">Digite o Preço do produto</string>

@@ -8,4 +8,5 @@
     <color name="transparentGrey">#BEBEBE</color>
     <color name="Grey">#7C7C7C</color>
     <color name="colorPrimary">@color/orange</color>
+    <color name="blue">#2196F3</color>
 </resources>

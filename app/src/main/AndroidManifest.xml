@@ -13,9 +13,14 @@
         android:theme="@style/Base.Theme.CardapioOnline"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.RegisterFoodActivity"
+            android:name=".ui.activity.ManagerActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="true">
+            />
+        <activity
+            android:name=".ui.activity.RegisterFoodActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +40,7 @@
         <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
