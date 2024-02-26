@@ -28,5 +28,6 @@
     <string name="txt_hint_food_price">Digite o Preço do produto</string>
     <string name="txt_hint_food_img">Selecione uma imagem</string>
     <string name="txt_register_button">Cadastrar produto</string>
+    <string name="list_all_category">Selecione uma categoria</string>
 
 </resources>

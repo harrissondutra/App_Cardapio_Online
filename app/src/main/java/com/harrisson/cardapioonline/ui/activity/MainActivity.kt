@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         val adapter = ParentRecyclerViewAdapter(parentList, this)
         parentRecyclerView.adapter = adapter
 
+
+
         parentRecyclerView.layoutManager = LinearLayoutManager(this)
         parentRecyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -47,6 +49,10 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
             )
         )
         getItemFood()
+
+        val intentList = Intent(this, RegisterFoodActivity::class.java)
+        intentList.putParcelableArrayListExtra("parentList", parentList)
+        startActivity(intentList)
 
         binding.clearButton.setOnClickListener {
 
@@ -205,7 +211,10 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
             )
         )
         parentList.add(ParentItem("Sobremesas", R.drawable.sweets, childList4))
+
     }
+
+
 
     fun createSnackBarLoginSuccesful(
         view : View,

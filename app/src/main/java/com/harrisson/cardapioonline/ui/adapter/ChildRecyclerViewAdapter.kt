@@ -22,7 +22,7 @@ class ChildRecyclerViewAdapter(
     inner class ChildItemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val childImageView = itemView.findViewById<ImageView>(R.id.img_food)
         val childTitle = itemView.findViewById<TextView>(R.id.txt_name_food)
-        val childPrice = itemView.findViewById<TextView>(R.id.txt_price_food)
+        val childPrice = itemView.findViewById<TextView>(R.id.txt_register_price_food)
         val childDescription = itemView.findViewById<TextView>(R.id.txt_menu_food_description)
         val childQtd = itemView.findViewById<TextView>(R.id.edt_qtd_food)
 
@@ -38,7 +38,7 @@ class ChildRecyclerViewAdapter(
             val name = itemView.findViewById<TextView>(R.id.txt_name_food)
             name.text = food.title
 
-            val price = itemView.findViewById<TextView>(R.id.txt_price_food)
+            val price = itemView.findViewById<TextView>(R.id.txt_register_price_food)
             price.text = "R$ " + "%.2f".format(food.price)
 //            price.text = "R$ " + food.price_food
 

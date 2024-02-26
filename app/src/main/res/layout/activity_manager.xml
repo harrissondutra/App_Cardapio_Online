@@ -7,19 +7,69 @@
     tools:context=".ui.activity.ManagerActivity">
 
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarManager"
         layout="@layout/toolbar" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_manager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:text="Selecione a opção desejada"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
-        android:textSize="20sp"/>
+        android:text="Selecione a opção desejada"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarManager" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_main_register"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Cadastrar Produto"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/add_icon"
+        app:layout_constraintEnd_toStartOf="@id/btn_main_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_manager"
+        app:strokeWidth="0.6dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_main_edit"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Editar Produto"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_main_register"
+        app:layout_constraintTop_toBottomOf="@id/txt_manager" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_main_remove"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Remover Produto"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="@id/btn_main_register"
+        app:layout_constraintStart_toStartOf="@id/btn_main_register"
+        app:layout_constraintTop_toBottomOf="@id/btn_main_register" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_main_list"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Listar Todos"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="@id/btn_main_edit"
+        app:layout_constraintStart_toStartOf="@id/btn_main_edit"
+        app:layout_constraintTop_toBottomOf="@id/btn_main_edit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

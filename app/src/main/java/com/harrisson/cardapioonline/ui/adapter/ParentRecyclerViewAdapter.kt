@@ -1,5 +1,6 @@
 package com.harrisson.cardapioonline.ui.adapter
 
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.harrisson.cardapioonline.models.ParentItem
 import com.harrisson.cardapioonline.R
+import com.harrisson.cardapioonline.ui.activity.CheckoutActivity
+import com.harrisson.cardapioonline.ui.activity.RegisterFoodActivity
 
 class ParentRecyclerViewAdapter(
     private val parentItemList : List<ParentItem>,
@@ -32,6 +35,7 @@ class ParentRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : ParentRecyclerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.parent_item, parent, false)
+
         return ParentRecyclerViewHolder(view)
     }
 
@@ -48,6 +52,9 @@ class ParentRecyclerViewAdapter(
 
         holder.childRecyclerView.setHasFixedSize(true)
         val recyclerViewMenu = holder.childRecyclerView
+
+
+
 
         //verificar e alterar caso não fique bom
         var linearLayoutManager = LinearLayoutManager(holder.childRecyclerView.context, LinearLayoutManager.VERTICAL, false)

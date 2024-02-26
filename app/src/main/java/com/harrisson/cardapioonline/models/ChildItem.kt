@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class ChildItem(
-    val title:String? = null,
+    var title:String? = null,
     val image: Int,
     var price: Double,
     val description: String? = null,

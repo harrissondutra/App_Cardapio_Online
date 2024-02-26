@@ -58,7 +58,7 @@
         />
 
     <TextView
-        android:id="@+id/txt_price_food"
+        android:id="@+id/txt_register_price_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="@string/txt_price_item"
@@ -81,7 +81,7 @@
         android:src="@drawable/remove_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/edt_qtd_food"
-        app:layout_constraintStart_toEndOf="@id/txt_price_food"
+        app:layout_constraintStart_toEndOf="@id/txt_register_price_food"
         app:layout_constraintTop_toBottomOf="@id/txt_menu_food_description" />
 
     <TextView
