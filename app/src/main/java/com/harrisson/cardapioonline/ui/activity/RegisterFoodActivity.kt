@@ -51,32 +51,47 @@ class RegisterFoodActivity : AppCompatActivity() {
                 return@setOnClickListener
             }*/
 
-            if (productCategory.isBlank() || productName.isBlank() || productDescription.isBlank() || productPrice.isBlank()) {
-                binding.edtRegisterNameFood.error = "Campo obrigatório"
-                binding.edtDescNameFood.error = "Campo obrigatório"
-                binding.edtRegisterPriceFood.error = "Campo obrigatório"
+            if(productCategory.isBlank() ){
                 binding.listCategoryView.error = "Campo obrigatório"
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Verifique se todos os campos foram preenchidos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
+                binding.listCategory.text = null
+                binding.listCategoryView.error = null
 
+            }
+
+
+            if (productName.isBlank()) {
+                binding.edtRegisterNameFood.error = "Campo obrigatório"
+                Toast.makeText(this, "Verifique se todos os campos foram preenchidos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }else {
                 binding.edtRegisterNameFood.error = null
+            }
+
+            if (productDescription.isBlank()) {
+                binding.edtDescNameFood.error = "Campo obrigatório"
+                Toast.makeText(this, "Verifique se todos os campos foram preenchidos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
                 binding.edtDescNameFood.error = null
+
+            }
+
+            if (productPrice.isBlank()) {
+                binding.edtRegisterPriceFood.error = "Campo obrigatório"
+                Toast.makeText(this, "Verifique se todos os campos foram preenchidos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
                 binding.edtRegisterPriceFood.error = null
-                binding.listCategoryView.error = null
-
-
             }
 
             if (productPrice.toDouble() <= 0) {
                 binding.edtRegisterPriceFood.error = "Preço inválido"
                 Toast.makeText(this, "Preço inválido", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener}
-
-
-
-
-
+                return@setOnClickListener
+            }
 
             val productCreated = ArrayList<ChildItem>()
             productCreated.add(
@@ -88,6 +103,7 @@ class RegisterFoodActivity : AppCompatActivity() {
                 )
             )
 
+
             val productList: ArrayList<ParentItem> = arrayListOf()
             productList.add(ParentItem(productCategory, R.drawable.almoco, productCreated))
 
@@ -96,8 +112,9 @@ class RegisterFoodActivity : AppCompatActivity() {
                 .setMessage(
                     "Categoria: $productCategory\n" +
                             "Produto: $productName\n" +
-                            "Descrição: $productDescription\n" +
-                            "Preço: R$ $productPrice"
+                            "Preço: $productPrice\n" +
+                            "Descrição: $productDescription"
+
                 )
                 .setPositiveButton("OK") { dialog, _ ->
                     AlertDialog.Builder(this)

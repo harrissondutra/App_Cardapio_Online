@@ -43,19 +43,19 @@ class ManagerActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_main_edit -> {
                 /*val intent = Intent(this, RegisterFoodActivity::class.java)
                 startActivity(intent)*/
-                Toast.makeText(this, "Função Em implementação", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()
             }
 
             R.id.btn_main_remove -> {
                 /*val intent = Intent(this, RegisterFoodActivity::class.java)
                 startActivity(intent)*/
-                Toast.makeText(this, "Função Em implementação", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()
             }
 
             R.id.btn_main_list -> {
                 /* val intent = Intent(this, ManagerActivity::class.java)
                  startActivity(intent)*/
-                Toast.makeText(this, "Função Em implementação", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()
             }
         }
     }

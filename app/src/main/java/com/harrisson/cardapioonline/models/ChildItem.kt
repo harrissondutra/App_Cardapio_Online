@@ -4,13 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class ChildItem(
-    var title:String? = null,
+    var title: String? = null,
     val image: Int,
     var price: Double,
     val description: String? = null,
     var qtd: Int = 0,
-): Parcelable {
-    constructor(parcel : Parcel) : this(
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readInt(),
         parcel.readDouble(),
@@ -19,7 +19,7 @@ data class ChildItem(
     ) {
     }
 
-    override fun writeToParcel(parcel : Parcel, flags : Int) {
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeInt(image)
         parcel.writeDouble(price)
@@ -27,16 +27,23 @@ data class ChildItem(
         parcel.writeInt(qtd)
     }
 
-    override fun describeContents() : Int {
+    override fun describeContents(): Int {
         return 0
     }
 
+    override fun toString(): String {
+        return String.format ("Produto = $title\n" +
+                "Descrição = $description\n" +
+                "Preço = $price\n" +
+                "Id da Imagem = $image\n")
+    }
+
     companion object CREATOR : Parcelable.Creator<ChildItem> {
-        override fun createFromParcel(parcel : Parcel) : ChildItem {
+        override fun createFromParcel(parcel: Parcel): ChildItem {
             return ChildItem(parcel)
         }
 
-        override fun newArray(size : Int) : Array<ChildItem?> {
+        override fun newArray(size: Int): Array<ChildItem?> {
             return arrayOfNulls(size)
         }
     }
