@@ -12,18 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.CardapioOnline"
         tools:targetApi="31">
+
         <activity
-            android:name=".ui.activity.ManagerActivity"
+            android:name=".ui.activity.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".ui.activity.RegisterFoodActivity"
@@ -36,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.activity.DestinyActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -66,6 +64,10 @@
             android:name=".ui.activity.CheckoutActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

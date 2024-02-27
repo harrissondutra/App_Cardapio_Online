@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "65634833611",
+    "project_id": "cardapioonline-f8843",
+    "storage_bucket": "cardapioonline-f8843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65634833611:android:2457d3c9bccd1402f5f74e",
+        "android_client_info": {
+          "package_name": "com.harrisson.cardapioonline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGj0Uh1lGZwFEVM0ndhI1ADe_IEhEYXW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

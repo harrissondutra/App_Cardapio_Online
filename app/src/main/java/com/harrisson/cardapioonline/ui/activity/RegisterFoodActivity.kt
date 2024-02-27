@@ -110,7 +110,7 @@ class RegisterFoodActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Produto Cadastrado")
                 .setMessage(
-                    "Categoria: $productCategory\n" +
+                    "Categoria: $productCategory\n'" +
                             "Produto: $productName\n" +
                             "Preço: $productPrice\n" +
                             "Descrição: $productDescription"
