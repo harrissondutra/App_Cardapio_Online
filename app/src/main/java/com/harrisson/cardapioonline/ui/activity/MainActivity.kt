@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityMainBinding
 import com.harrisson.cardapioonline.models.ChildItem
@@ -92,6 +94,18 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
             }
 
         }
+
+
+        val logoutButton = findViewById<TextView>(R.id.txt_logoff)
+
+        logoutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            true
+        }
+
     }
 
     private fun getItemFood() {

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityManagerBinding
 
@@ -29,6 +30,16 @@ class ManagerActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnMainEdit.setOnClickListener(this)
         binding.btnMainRemove.setOnClickListener(this)
         binding.btnMainList.setOnClickListener(this)
+
+        val logoutButton = findViewById<TextView>(R.id.txt_logoff)
+
+        logoutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            true
+        }
 
     }
 

@@ -8,7 +8,7 @@
 
     tools:context=".ui.activity.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <!--<androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:id="@+id/toolbarManager"
         android:layout_height="wrap_content"
@@ -35,7 +35,11 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>-->
+
+    <include
+        android:id="@+id/toolbarMain"
+        layout="@layout/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parentRecyclerView"
@@ -44,7 +48,7 @@
         app:layout_constraintBottom_toTopOf="@id/clear_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarManager">
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain">
 
     </androidx.recyclerview.widget.RecyclerView>
 

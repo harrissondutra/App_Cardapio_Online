@@ -1,5 +1,6 @@
 package com.harrisson.cardapioonline.ui.activity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityRegisterFoodBinding
 import com.harrisson.cardapioonline.models.ChildItem
@@ -36,6 +38,16 @@ class RegisterFoodActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, R.layout.list_item, items)
         val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.list_category_view)
         autoCompleteTextView.setAdapter(adapter)
+
+        val logoutButton = findViewById<TextView>(R.id.txt_logoff)
+
+        logoutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            true
+        }
 
         binding.btnRegisterFood.setOnClickListener {
 
