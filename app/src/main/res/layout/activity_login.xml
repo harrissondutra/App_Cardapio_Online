@@ -8,7 +8,7 @@
     tools:context=".ui.activity.LoginActivity">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logo_register"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
@@ -16,7 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/txt_app_name_login"
@@ -31,12 +30,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_register" />
 
     <ImageView
         android:id="@+id/bg_login"
         android:layout_width="330dp"
-        android:layout_height="420dp"
+        android:layout_height="430dp"
         android:background="@drawable/rounded_main"
         android:backgroundTint="#DFFFFFFF"
         app:layout_constraintBottom_toTopOf="@id/txt_register_login"
@@ -55,7 +54,7 @@
         app:layout_constraintTop_toTopOf="@+id/bg_login" />
 
     <TextView
-        android:id="@+id/txt_login_title"
+        android:id="@+id/txt_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/be_vietnam"
@@ -71,11 +70,19 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_name"
-        style="?attr/textInputFilledStyle"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
         android:hint="@string/login_name"
+        app:errorEnabled="true"
+        app:boxBackgroundColor="#C8FFFFFF"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bg_login_title"
@@ -84,20 +91,25 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_name_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_login_email"
-        style="?attr/textInputFilledStyle"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:hint="@string/login_email"
+        app:errorEnabled="true"
+        app:boxBackgroundColor="#C8FFFFFF"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_name"
@@ -106,6 +118,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
@@ -114,12 +127,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_login_password"
-        style="?attr/textInputFilledStyle"
+        style="?attr/textInputOutlinedStyle"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:hint="@string/login_password"
         app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:boxBackgroundColor="#C8FFFFFF"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_login_email"
@@ -128,7 +146,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_forgot_password"
+            android:id="@+id/input_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -145,7 +163,6 @@
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/txt_login_password"
         app:layout_constraintTop_toBottomOf="@+id/txt_login_password" />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"

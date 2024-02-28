@@ -23,30 +23,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.activity.RegisterLoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        <!--    <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+
+        </activity>
+
         <activity
             android:name=".ui.activity.RegisterFoodActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.activity.DestinyActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
@@ -60,6 +66,7 @@
             </intent-filter>
             -->
         </activity>
+
         <activity
             android:name=".ui.activity.CheckoutActivity"
             android:exported="false"

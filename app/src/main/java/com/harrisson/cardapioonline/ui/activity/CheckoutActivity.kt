@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.harrisson.cardapioonline.databinding.ActivityCheckoutBinding
 import com.harrisson.cardapioonline.databinding.ItemCheckoutBinding
 import com.harrisson.cardapioonline.models.ChildItem
@@ -18,6 +20,10 @@ import com.harrisson.cardapioonline.models.ChildItem
 class CheckoutActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityCheckoutBinding
+    val db = Firebase.firestore
+
+    var mesa = intent.getStringExtra("tableNumber")
+    var name : String? = null
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +41,18 @@ class CheckoutActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = linearLayoutManager
 
-        var mesa = intent.getStringExtra("tableNumber")
-        var name = intent.getStringExtra("name")
+        db.collection("users")
+            .get()
+            .addOnSuccessListener {
+                for (document in it) {
+                    name = document.getString("name")
+                }
+                for (document in it) {
+                    Toast.makeText(this, "${document.id} => ${document.data}", Toast.LENGTH_LONG).show()
+                }
+            }
+
+
 
         binding.txtTopoCheckout.text = "Mesa: $mesa"
         binding.totalValueCheckout.text =

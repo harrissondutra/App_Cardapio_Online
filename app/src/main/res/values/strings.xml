@@ -30,7 +30,7 @@
     <string name="txt_register_button">Cadastrar produto</string>
     <string name="list_all_category">Selecione uma categoria</string>
     <string name="title_activity_login">LoginActivity</string>
-<!--    Tela de Login-->
+    <!--    Tela de Login-->
     <string name="login_title">Login do cliente</string>
     <string name="login_name">Nome</string>
     <string name="login_email">Email</string>
@@ -39,4 +39,5 @@
     <string name="login_btn">Entrar</string>
     <string name="login_register">Não tem cadastro ainda?</string>
     <string name="login_register_btn">Cadastre-se</string>
+    <string name="register_title">Novo Usuário</string>
 </resources>
