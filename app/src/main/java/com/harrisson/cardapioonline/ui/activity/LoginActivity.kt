@@ -1,22 +1,17 @@
 package com.harrisson.cardapioonline.ui.activity
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.Firebase
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.firestore.firestore
-import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -28,13 +23,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.loginButton.setOnClickListener {view ->
+        binding.loginButton.setOnClickListener { view ->
             var name = binding.inputNameLogin.text.toString()
             val email = binding.inputEmailLogin.text.toString()
             val password = binding.inputPasswordLogin.text.toString()
-
-            var testeTexto = binding.forgotPassword.text.toString()
-
 
             if (email.isEmpty() || password.isEmpty()) {
                 createSnackBarError(view, "Preencha todos os campos")
@@ -42,9 +34,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { authentication ->
                         if (authentication.isSuccessful) {
-                            createSnackBarLoginSuccesful(view, "Login realizado com sucesso", Color.rgb(13, 142, 9))
-
-                            toHome()
+                            createSnackBarLoginSuccesful(
+                                view,
+                                "Login realizado com sucesso",
+                                Color.rgb(13, 142, 9)
+                            )
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
                         }
                     }.addOnFailureListener { exception ->
                         val errorMessage = when (exception) {
@@ -55,10 +51,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         createSnackBarError(view, errorMessage)
                     }
-
             }
-
-
         }
 
         binding.btnRegister.setOnClickListener {
@@ -93,6 +86,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         snackbar.setTextColor(Color.WHITE)
         snackbar.show()
     }
+
     override fun onClick(v: View?) {
         if (binding.btnRegister == v) {
             val intent = Intent(this, RegisterLoginActivity::class.java)

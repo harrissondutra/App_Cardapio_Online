@@ -50,10 +50,6 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         getItemFood()
 
-        val intentList = Intent(this, RegisterFoodActivity::class.java)
-        intentList.putParcelableArrayListExtra("parentList", parentList)
-        startActivity(intentList)
-
         binding.clearButton.setOnClickListener {
 
             // Limpar carrinho de compras e alterar todas as quantidades para 0

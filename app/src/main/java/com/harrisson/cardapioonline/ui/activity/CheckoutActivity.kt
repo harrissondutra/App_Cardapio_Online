@@ -22,7 +22,8 @@ class CheckoutActivity : AppCompatActivity() {
     private lateinit var binding : ActivityCheckoutBinding
     val db = Firebase.firestore
 
-    var mesa = intent.getStringExtra("tableNumber")
+//    var mesa = intent.getStringExtra("tableNumber")
+    var mesa: Int = 0
     var name : String? = null
 
     override fun onCreate(savedInstanceState : Bundle?) {
@@ -30,9 +31,9 @@ class CheckoutActivity : AppCompatActivity() {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var selectedFoodList = intent.getParcelableArrayListExtra<ChildItem>("selectedFoodList")!!
+        val selectedFoodList = intent.getParcelableArrayListExtra<ChildItem>("selectedFoodList")!!
 
-        var recyclerView = binding.listaCheckout
+        val recyclerView = binding.listaCheckout
 
         recyclerView.setHasFixedSize(true)
         var linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -40,19 +41,6 @@ class CheckoutActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         recyclerView.layoutManager = linearLayoutManager
-
-        db.collection("users")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    name = document.getString("name")
-                }
-                for (document in it) {
-                    Toast.makeText(this, "${document.id} => ${document.data}", Toast.LENGTH_LONG).show()
-                }
-            }
-
-
 
         binding.txtTopoCheckout.text = "Mesa: $mesa"
         binding.totalValueCheckout.text =
