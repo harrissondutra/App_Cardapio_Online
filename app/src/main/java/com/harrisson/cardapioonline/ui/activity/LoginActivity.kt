@@ -5,13 +5,16 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,6 +25,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        val btn_google = binding.btnGoogleLogin.getChildAt(0) as TextView
+        btn_google.text = "Entre com sua conta Google"
+
 
         binding.loginButton.setOnClickListener { view ->
             var name = binding.inputNameLogin.text.toString()

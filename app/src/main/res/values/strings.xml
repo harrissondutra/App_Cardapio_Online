@@ -38,6 +38,11 @@
     <string name="login_forgot">Esqueci minha senha</string>
     <string name="login_btn">Entrar</string>
     <string name="login_register">Não tem cadastro ainda?</string>
-    <string name="login_register_btn">Cadastre-se</string>
-    <string name="register_title">Novo Usuário</string>
+    <string name="login_register_new_btn">Cadastre-se</string>
+    <string name="login_register_btn">Cadastrar</string>
+    <string name="register_title">Cadastro de Usuário</string>
+
+    <!--    Tela de Categorias-->
+    <string name="categories_input">Digite o nome da Categoria</string>
+    <string name="categories_title">Cadastre a categoria do produto</string>
 </resources>
