@@ -1,75 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.ManagerActivity">
+    android:layout_gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_manager">
 
     <include
         android:id="@+id/toolbarManager"
         layout="@layout/toolbar" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txt_manager"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Selecione a opção desejada"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarManager" />
+        android:layout_below="@+id/toolbarManager">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_main_register"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Cadastrar Produto"
-        app:cornerRadius="12dp"
-        app:icon="@drawable/add_icon"
-        app:layout_constraintEnd_toStartOf="@id/btn_main_edit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_manager"
-        app:strokeWidth="0.6dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrain_cards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.activity.ManagerActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_main_edit"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Editar Produto"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_main_register"
-        app:layout_constraintTop_toBottomOf="@id/txt_manager" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Gerenciamento de Produtos"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_main_remove"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Remover Produto"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_main_register"
-        app:layout_constraintStart_toStartOf="@id/btn_main_register"
-        app:layout_constraintTop_toBottomOf="@id/btn_main_register" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_register"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toStartOf="@id/card_edit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_manager"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_main_list"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Listar Todos"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_main_edit"
-        app:layout_constraintStart_toStartOf="@id/btn_main_edit"
-        app:layout_constraintTop_toBottomOf="@id/btn_main_edit" />
+                <ImageView
+                    android:id="@+id/img_card_register"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_food" />
+
+                <TextView
+                    android:id="@+id/txt_card_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Cadastrar Produto"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_edit"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_register"
+                app:layout_constraintTop_toTopOf="@+id/card_register"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_edit" />
+
+                <TextView
+                    android:id="@+id/txt_card_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Editar Produtos"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_remove"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/card_register"
+                app:layout_constraintStart_toStartOf="@+id/card_register"
+                app:layout_constraintTop_toBottomOf="@+id/card_register"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_remove"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ico_delete" />
+
+                <TextView
+                    android:id="@+id/txt_card_remove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Remover Produto"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_list"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="@id/card_edit"
+                app:layout_constraintStart_toStartOf="@id/card_edit"
+                app:layout_constraintTop_toTopOf="@+id/card_remove"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_list"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_list" />
+
+                <TextView
+                    android:id="@+id/txt_card_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Mostrar Todos"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_manager_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Gerenciamento de usuários"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_list" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_register_user"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:checkable="true"
+                android:elevation="30dp"
+                app:layout_constraintStart_toStartOf="@id/card_remove"
+                app:layout_constraintTop_toBottomOf="@+id/txt_manager_user"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_register_user"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_add_user" />
+
+                <TextView
+                    android:id="@+id/txt_card_register_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Cadastrar Usuário"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_edit_user"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_register_user"
+                app:layout_constraintTop_toTopOf="@+id/card_register_user"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_edit_user"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_user_edit" />
+
+                <TextView
+                    android:id="@+id/txt_card_edit_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Editar Usuário"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_remove_user"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/card_register"
+                app:layout_constraintStart_toStartOf="@+id/card_register"
+                app:layout_constraintTop_toBottomOf="@+id/card_edit_user"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_remove_user"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ico_user_delete" />
+
+                <TextView
+                    android:id="@+id/txt_card_remove_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Remover Usuário"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_list_user"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="30dp"
+                android:checkable="true"
+                android:elevation="50dp"
+                app:layout_constraintEnd_toEndOf="@id/card_edit"
+                app:layout_constraintStart_toStartOf="@id/card_edit"
+                app:layout_constraintTop_toTopOf="@+id/card_remove_user"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="4dp">
+
+                <ImageView
+                    android:id="@+id/img_card_list_user"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ico_list_user" />
+
+                <TextView
+                    android:id="@+id/txt_card_list_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="7dp"
+                    android:text="Mostrar Todos"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>
+
+
+

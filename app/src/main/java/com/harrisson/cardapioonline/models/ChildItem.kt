@@ -1,50 +1,20 @@
 package com.harrisson.cardapioonline.models
 
-import android.os.Parcel
 import android.os.Parcelable
-
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
+import kotlinx.parcelize.Parcelize
+@Parcelize
 data class ChildItem(
+    var id: String = "",
     var title: String? = null,
-    val image: Int,
+    var image: Int,
     var price: Double,
-    val description: String? = null,
+    var description: String? = null,
     var qtd: Int = 0,
 ) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readInt(),
-        parcel.readDouble(),
-        parcel.readString(),
-        parcel.readInt()
-    ) {
+    init {
+        this.id = Firebase.database.reference.push().key ?: ""
     }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(title)
-        parcel.writeInt(image)
-        parcel.writeDouble(price)
-        parcel.writeString(description)
-        parcel.writeInt(qtd)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    override fun toString(): String {
-        return String.format ("Produto = $title\n" +
-                "Descrição = $description\n" +
-                "Preço = $price\n" +
-                "Id da Imagem = $image\n")
-    }
-
-    companion object CREATOR : Parcelable.Creator<ChildItem> {
-        override fun createFromParcel(parcel: Parcel): ChildItem {
-            return ChildItem(parcel)
-        }
-
-        override fun newArray(size: Int): Array<ChildItem?> {
-            return arrayOfNulls(size)
-        }
-    }
 }

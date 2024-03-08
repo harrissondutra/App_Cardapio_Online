@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityMainBinding
 import com.harrisson.cardapioonline.models.ChildItem
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
     private var selectedFoodList : ArrayList<ChildItem> = arrayListOf()
     var totalPrice : Double = 0.0
     var alertSnackBar : String = ""
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +41,9 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         parentRecyclerView = findViewById(R.id.parentRecyclerView)
         parentRecyclerView.setHasFixedSize(true)
 
+
         val adapter = ParentRecyclerViewAdapter(parentList, this)
         parentRecyclerView.adapter = adapter
-
-
 
         parentRecyclerView.layoutManager = LinearLayoutManager(this)
         parentRecyclerView.addItemDecoration(
@@ -108,11 +110,14 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
 
     }
 
+
+
     private fun getItemFood() {
 
         val childList = ArrayList<ChildItem>()
         childList.add(
             ChildItem(
+                "1",
                 "Batata Frita",
                 R.drawable.batata_frita,
                 30.00,
@@ -121,6 +126,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList.add(
             ChildItem(
+                "2",
                 "Bolinha de peixe",
                 R.drawable.bolinha_de_peixe,
                 20.00,
@@ -129,6 +135,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList.add(
             ChildItem(
+                "3",
                 "Pastelzinho",
                 R.drawable.pastelzinho,
                 12.50,
@@ -137,6 +144,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList.add(
             ChildItem(
+                "4",
                 "Macaxeira Frita",
                 R.drawable.macaxeira,
                 30.00,
@@ -145,9 +153,10 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         parentList.add(ParentItem("Petiscos", R.drawable.nuggets, childList))
 
-        val childList2 = ArrayList<ChildItem>()
+       /* val childList2 = ArrayList<ChildItem>()
         childList2.add(
             ChildItem(
+                "1",
                 "Picanha",
                 R.drawable.picanha,
                 70.00,
@@ -156,6 +165,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList2.add(
             ChildItem(
+                "2",
                 "Maminha",
                 R.drawable.maminha,
                 56.00,
@@ -164,6 +174,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList2.add(
             ChildItem(
+                "3",
                 "Alcatra",
                 R.drawable.alcatra,
                 50.00,
@@ -172,6 +183,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList2.add(
             ChildItem(
+                "4",
                 "Frango",
                 R.drawable.frango,
                 20.00,
@@ -181,10 +193,22 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         parentList.add(ParentItem("Comidas", R.drawable.almoco, childList2))
 
         val childList3 = ArrayList<ChildItem>()
-        childList3.add(ChildItem("Coca-Cola 2l", R.drawable.coca_cola, 12.00, "Geladíssima"))
-        childList3.add(ChildItem("São Geraldo 2l", R.drawable.sao_geraldo, 15.00, "Geladíssima"))
+        childList3.add(ChildItem(
+            "1",
+            "Coca-Cola 2l"
+            , R.drawable.coca_cola,
+            12.00,
+            "Geladíssima"))
         childList3.add(
             ChildItem(
+                "2",
+                "São Geraldo 2l",
+                R.drawable.sao_geraldo,
+                15.00,
+                "Geladíssima"))
+        childList3.add(
+            ChildItem(
+                "3",
                 "Heineken 600ml",
                 R.drawable.cerv_heine,
                 25.00,
@@ -193,6 +217,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         )
         childList3.add(
             ChildItem(
+                "4",
                 "Stella Artois 600ml",
                 R.drawable.cerv_stella,
                 20.00,
@@ -202,18 +227,28 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
         parentList.add(ParentItem("Bebidas", R.drawable.bebida, childList3))
 
         val childList4 = ArrayList<ChildItem>()
-        childList4.add(ChildItem("Sorvete", R.drawable.sorvete, 10.00, "Morango, chocolate, creme"))
+        childList4.add(ChildItem("1","Sorvete", R.drawable.sorvete, 10.00, "Morango, chocolate, creme"))
         childList4.add(
             ChildItem(
+                "2",
                 "Açaí",
                 R.drawable.acai,
                 13.00,
                 "Com banana, granola, leite condensado"
             )
         )
-        childList4.add(ChildItem("Pudim", R.drawable.pudim, 6.50, "De leite, de pão, de chocolate"))
+
         childList4.add(
             ChildItem(
+                "3",
+                "Pudim",
+                R.drawable.pudim,
+                6.50,
+                "De leite, de pão, de chocolate"))
+
+        childList4.add(
+            ChildItem(
+                "4",
                 "Bolo",
                 R.drawable.bolo,
                 5.00,
@@ -221,7 +256,7 @@ class MainActivity : AppCompatActivity(), ChildRecyclerViewAdapter.FoodInterface
             )
         )
         parentList.add(ParentItem("Sobremesas", R.drawable.sweets, childList4))
-
+*/
     }
 
 

@@ -26,10 +26,10 @@ class ManagerActivity : AppCompatActivity(), View.OnClickListener {
 
 
 
-        binding.btnMainRegister.setOnClickListener(this)
-        binding.btnMainEdit.setOnClickListener(this)
-        binding.btnMainRemove.setOnClickListener(this)
-        binding.btnMainList.setOnClickListener(this)
+        binding.cardRegister.setOnClickListener(this)
+        binding.cardEdit.setOnClickListener(this)
+        binding.cardRemove.setOnClickListener(this)
+        binding.cardList.setOnClickListener(this)
 
         val logoutButton = findViewById<TextView>(R.id.txt_logoff)
 
@@ -41,29 +41,30 @@ class ManagerActivity : AppCompatActivity(), View.OnClickListener {
             true
         }
 
+
     }
 
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.btn_main_register -> {
+            R.id.card_register -> {
                 val intent = Intent(this, RegisterFoodActivity::class.java)
                 startActivity(intent)
             }
 
-            R.id.btn_main_edit -> {
+            R.id.card_edit -> {
                 /*val intent = Intent(this, RegisterFoodActivity::class.java)
                 startActivity(intent)*/
                 Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()
             }
 
-            R.id.btn_main_remove -> {
+            R.id.card_remove -> {
                 /*val intent = Intent(this, RegisterFoodActivity::class.java)
                 startActivity(intent)*/
                 Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()
             }
 
-            R.id.btn_main_list -> {
+            R.id.card_list -> {
                 /* val intent = Intent(this, ManagerActivity::class.java)
                  startActivity(intent)*/
                 Toast.makeText(this, "Função em implementação", Toast.LENGTH_SHORT).show()

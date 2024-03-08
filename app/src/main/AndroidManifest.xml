@@ -12,30 +12,63 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.CardapioOnline"
         tools:targetApi="31">
+
+<!--        Login-->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
+
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+<!--        Main-->
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
+
+            <!--        <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name=".ui.activity.ManagerActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
+
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
+
+<!--        Categories-->
         <activity
             android:name=".ui.activity.CategoriesActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            >
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity
-            android:name=".ui.activity.LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        Register Login-->
         <activity
             android:name=".ui.activity.RegisterLoginActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
+            android:exported="true"
+            android:screenOrientation="fullSensor">
 
             <!--
                 <intent-filter>
@@ -46,40 +79,37 @@
             -->
 
         </activity>
+
+<!--        Register Food-->
         <activity
             android:name=".ui.activity.RegisterFoodActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-<!--            <intent-filter>
+            android:screenOrientation="fullSensor">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+
+<!--        Destiny-->
         <activity
             android:name=".ui.activity.DestinyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:exported="true"
+            android:screenOrientation="fullSensor">
 
+        </activity>
+
+<!--        Splash-->
         <activity
             android:name=".ui.activity.SplashActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor" />
 
-    <!--        <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
+<!--        Checkout-->
         <activity
             android:name=".ui.activity.CheckoutActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait" />
 
         <meta-data

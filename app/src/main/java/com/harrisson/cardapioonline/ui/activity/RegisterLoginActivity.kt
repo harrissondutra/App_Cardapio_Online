@@ -24,7 +24,7 @@ class RegisterLoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterLoginBinding
     private var auth = FirebaseAuth.getInstance()
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -66,8 +66,6 @@ class RegisterLoginActivity : AppCompatActivity() {
                     db.collection("users")
                         .add(user)
                         .addOnSuccessListener { documentReference ->
-                            val testeTexto = "Adicionado Usuário: ${user.get("name")}"
-                            Toast.makeText(this, testeTexto, Toast.LENGTH_SHORT).show()
                             Log.d(ContentValues.TAG, "Adicionado Usuário ID: ${documentReference.id}")
                         }
                         .addOnFailureListener { e ->

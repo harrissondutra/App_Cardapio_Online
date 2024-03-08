@@ -11,6 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.harrisson.cardapioonline.models.ParentItem
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.ui.activity.CheckoutActivity
@@ -20,6 +22,8 @@ class ParentRecyclerViewAdapter(
     private val parentItemList : List<ParentItem>,
     private var clickListener : ChildRecyclerViewAdapter.FoodInterface
 ) : RecyclerView.Adapter<ParentRecyclerViewAdapter.ParentRecyclerViewHolder>() {
+
+    var db = Firebase.firestore
 
     inner class ParentRecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
