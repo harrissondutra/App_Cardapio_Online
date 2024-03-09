@@ -3,14 +3,13 @@ package com.harrisson.cardapioonline.ui.activity
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -18,12 +17,11 @@ import com.google.firebase.firestore.firestore
 import com.harrisson.cardapioonline.R
 import com.harrisson.cardapioonline.databinding.ActivityCategoriesBinding
 import com.harrisson.cardapioonline.models.ChildItem
-import com.harrisson.cardapioonline.models.ParentItem
 
 class CategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoriesBinding
-    private var db =  Firebase.firestore
+    private var db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -64,7 +62,8 @@ class CategoriesActivity : AppCompatActivity() {
                     createSnackBarLoginSuccesful(
                         binding.root,
                         "Categoria $category cadastrada com sucesso",
-                        Color.rgb(13, 142, 9))
+                        Color.rgb(13, 142, 9)
+                    )
                     Log.d(ContentValues.TAG, "Adicionado categoria: $category")
                     binding.inputCategories.text?.clear()
                 }
@@ -74,16 +73,14 @@ class CategoriesActivity : AppCompatActivity() {
                 }
 
 
-
-
-           /* db.collection("products")
-                .add(product)
-                .addOnSuccessListener { documentReference ->
-                    Log.d(ContentValues.TAG, "Adicionado produto: $category")
-                }
-                .addOnFailureListener { e ->
-                    Log.w(ContentValues.TAG, "Erro ao adicionar categoria", e)
-                }*/
+            /* db.collection("products")
+                 .add(product)
+                 .addOnSuccessListener { documentReference ->
+                     Log.d(ContentValues.TAG, "Adicionado produto: $category")
+                 }
+                 .addOnFailureListener { e ->
+                     Log.w(ContentValues.TAG, "Erro ao adicionar categoria", e)
+                 }*/
         }
     }
 

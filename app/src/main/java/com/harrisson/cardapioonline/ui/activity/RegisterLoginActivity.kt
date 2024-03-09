@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
@@ -55,8 +54,8 @@ class RegisterLoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(isValidEmail(email)) {
-                if(checkPassword(password)) {
+            if (isValidEmail(email)) {
+                if (checkPassword(password)) {
                     val user = hashMapOf(
                         "name" to name,
                         "email" to email,
@@ -66,19 +65,22 @@ class RegisterLoginActivity : AppCompatActivity() {
                     db.collection("users")
                         .add(user)
                         .addOnSuccessListener { documentReference ->
-                            Log.d(ContentValues.TAG, "Adicionado Usuário ID: ${documentReference.id}")
+                            Log.d(
+                                ContentValues.TAG,
+                                "Adicionado Usuário ID: ${documentReference.id}"
+                            )
                         }
                         .addOnFailureListener { e ->
                             Log.w(ContentValues.TAG, "Erro ao adicionar usuário", e)
                         }
 
-                }else{
+                } else {
                     val errorMessage = "Digite uma senha com no mínimo 6 caracteres"
                     createSnackBar(view, errorMessage, Color.RED)
                     return@setOnClickListener
                 }
 
-            }else{
+            } else {
                 val errorMessage = "Digite um email válido"
                 createSnackBar(view, errorMessage, Color.RED)
                 return@setOnClickListener
@@ -113,15 +115,15 @@ class RegisterLoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun isValidEmail(email: String):Boolean {
+    private fun isValidEmail(email: String): Boolean {
         val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$")
-        return email.matches(emailRegex.also { it.matches(email)})
+        return email.matches(emailRegex.also { it.matches(email) })
 
     }
 
-    private fun checkPassword(password: String):Boolean {
+    private fun checkPassword(password: String): Boolean {
         var passwordRegex = Regex("^[0-9a-zA-Z\$*&@#]{6,}\$")
-        return password.matches(passwordRegex.also { it.matches(password)})
+        return password.matches(passwordRegex.also { it.matches(password) })
     }
 
     private fun createSnackBarLoginSuccesful(view: View, alerta: String, color: Int = Color.RED) {
